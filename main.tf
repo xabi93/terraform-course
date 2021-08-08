@@ -14,14 +14,6 @@ provider "aws" {
   profile = "xabi"
 }
 
-variable vpc_cdir_block {}
-variable subnet_cidr_block {}
-variable avail_zone {}
-variable env_prefix {}
-variable my_ip {}
-variable instance_type {}
-variable public_key_location {}
-
 resource "aws_vpc" "myapp-vpc" {
   cidr_block = var.vpc_cdir_block
   tags = {
@@ -155,6 +147,3 @@ resource "aws_instance" "myapp-server" {
   }
 }
 
-output "myapp_server_public_id" {
-  value = aws_instance.myapp-server.public_ip
-}
